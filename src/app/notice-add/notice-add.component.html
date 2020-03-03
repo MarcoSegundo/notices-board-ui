@@ -1,0 +1,30 @@
+<div class="example-container mat-elevation-z8">
+    <div class="example-loading-shade"
+         *ngIf="isLoadingResults">
+      <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <div class="button-row">
+      <a mat-flat-button color="primary" [routerLink]="['/notices']"><mat-icon>list</mat-icon></a>
+    </div>
+    <mat-card class="example-card">
+      <form [formGroup]="noticeForm" (ngSubmit)="onFormSubmit(noticeForm.value)">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Título do Aviso" formControlName="title"
+                 [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!noticeForm.get('title').valid && noticeForm.get('title').touched">Informe o Título do Aviso</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Descrição do Aviso" formControlName="description"
+                 [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!noticeForm.get('description').valid && noticeForm.get('description').touched">Informe a Descrição do Aviso</span>
+          </mat-error>
+        </mat-form-field>
+        <div class="button-row">
+          <button type="submit" [disabled]="!noticeForm.valid" mat-flat-button color="primary"><mat-icon>save</mat-icon></button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
