@@ -47,16 +47,12 @@ export class NoticeEditComponent implements OnInit {
     this.api.updateNotice(this._id, form)
       .subscribe(res => {
           this.isLoadingResults = false;
-          this.router.navigate(['/notice-details', this._id]);
+          this.router.navigate(['/notices']);
         }, (err) => {
           console.log(err);
           this.isLoadingResults = false;
         }
       );
-  }
-
-  noticeDetails() {
-    this.router.navigate(['/notice-details', this._id]);
   }
 
 }

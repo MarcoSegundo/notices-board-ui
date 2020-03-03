@@ -5,7 +5,6 @@
     </div>
     <div class="button-row">
       <a mat-flat-button color="primary" [routerLink]="['/notices']"><mat-icon>list</mat-icon></a>
-      <a mat-flat-button color="primary" (click)="noticeDetails()"><mat-icon>info</mat-icon></a>
     </div>
     <mat-card class="example-card">
       <form [formGroup]="noticeForm" (ngSubmit)="onFormSubmit(noticeForm.value)">

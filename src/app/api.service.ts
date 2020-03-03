@@ -46,7 +46,7 @@ export class ApiService {
   
   addNotice (notice): Observable<Notice> {
     return this.http.post<Notice>(apiUrl, notice, httpOptions).pipe(
-      tap((notice: Notice) => console.log(`added notice w/ id=${notice.id}`)),
+      tap((notice: Notice) => console.log(`added notice id=${notice.id}`)),
       catchError(this.handleError<Notice>('addNotice'))
     );
   }
@@ -64,6 +64,15 @@ export class ApiService {
     return this.http.delete<Notice>(url, httpOptions).pipe(
       tap(_ => console.log(`deleted notice id=${id}`)),
       catchError(this.handleError<Notice>('deleteNotice'))
+    );
+  }
+
+  viewNotice (id): Observable<Notice> {
+    const url = `${apiUrl}/view/${id}`;
+  
+    return this.http.put<Notice>(url, httpOptions).pipe(
+      tap(_ => console.log(`view notice id=${id}`)),
+      catchError(this.handleError<Notice>('viewNotice'))
     );
   }
 }

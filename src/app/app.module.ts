@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NoticesComponent } from './notices/notices.component';
-import { NoticeDetailComponent } from './notice-detail/notice-detail.component';
 import { NoticeAddComponent } from './notice-add/notice-add.component';
 import { NoticeEditComponent } from './notice-edit/notice-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -25,7 +24,6 @@ import {
   declarations: [
     AppComponent,
     NoticesComponent,
-    NoticeDetailComponent,
     NoticeAddComponent,
     NoticeEditComponent
   ],
